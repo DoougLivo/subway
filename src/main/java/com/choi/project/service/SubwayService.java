@@ -1,4 +1,4 @@
-package com.choi.project.controller;
+package com.choi.project.service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,16 +8,12 @@ import java.net.URLEncoder;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Service;
 
-@Controller
-public class UserController {
+@Service("subwayService")
+public class SubwayService {
 	
-	@RequestMapping("/list")
-	public String getList(Model model, String search) {
-		
+	public JSONObject searchSubway(String search) {
 		try {
 			if (search == null) {
 				search = "서울";
@@ -57,11 +53,11 @@ public class UserController {
 			System.out.println("sb : " +  sb.toString());
 			JSONParser parser = new JSONParser();
 		    JSONObject jsonObject = (JSONObject) parser.parse(sb.toString());
-			model.addAttribute("sb", jsonObject);
+		   
+		    return jsonObject;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return "list";
+		return null;
 	}
 }

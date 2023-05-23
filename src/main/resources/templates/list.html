@@ -30,25 +30,21 @@
       <th>노선명</th> <!-- trainLineNm -->
       <th>역명</th> <!-- statnNm -->
       <th>도착 시간</th> <!-- recptnDt -->
-      <th>도착 메시지1</th> <!-- arvlMsg2 -->
-      <th>도착 메시지2</th> <!-- arvlMsg3 -->
+      <th>도착 메시지</th> <!-- arvlMsg2 -->
+      <th>현재 열차 위치</th> <!-- arvlMsg3 -->
    </tr>
  </thead>
  <tbody>
    <tr th:each="list : ${sb.realtimeArrivalList}">
-   <td th:text="${list.updnLine}"></td>
+   <td th:text="${list.subwayId}"></td>
       <td th:text="${list.updnLine}"></td>
-     <td th:text="${list.ordkey}"></td>
      <td th:text="${list.trainLineNm}"></td>
-     
-<!--       <td th:text="{list.realtimeArrivalList[i].updnLine}"></td> -->
-<!--       <td th:text="{list.realtimeArrivalList[i].trainLineNm}"></td> -->
-<!--       <td th:text="{list.realtimeArrivalList[i].statnNm}"></td> -->
-<!--       <td th:text="{list.realtimeArrivalList[i].recptnDt}"></td> -->
-<!--       <td th:text="{list.realtimeArrivalList[i].arvlMsg2}"></td> -->
-<!--       <td th:text="{list.realtimeArrivalList[i].arvlMsg3}"></td> -->
+     <td th:text="${list.statnNm}"></td>
+     <td th:text="${list.recptnDt}"></td>
+     <td th:text="${list.arvlMsg2}"></td>
+     <td th:text="${list.arvlMsg3}"></td>
    </tr>
- </tbody> 
+ </tbody>
 </table>
 </div>
 </body>
